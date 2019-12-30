@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-cn">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -133,7 +133,7 @@
 
 <meta name="generator" content="Hexo 4.2.0"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -367,7 +367,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/29/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2019/12/29/hello-world/" itemprop="url">Hexo(macOS)+Pages(Github)+MWeb(Editor)构建博客系统</a></h1>
         
 
         <div class="post-meta">
@@ -389,6 +389,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -419,19 +441,109 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+            <p>今天介绍下本博客系统搭建工具组合. </p>
+<ol>
+<li>本地环境: Hexo , macOS Catalina </li>
+<li>页面托管: GitHub Pages</li>
+<li>本地编辑: MWeb , Markdown Editor</li>
+</ol>
+<hr>
+<h2 id="macOS本地环境"><a href="#macOS本地环境" class="headerlink" title="macOS本地环境"></a>macOS本地环境</h2><p>需要在macOS本地环境安装: <code>Git</code> , <code>node.js</code>, <code>Hexo</code> </p>
+<h3 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h3><p>macOS上自带了Git系统, 不需要额外安装, 当然如果需要重新安装, 也可以在<a href="https://github.com/timcharper/git_osx_installer/releases" target="_blank" rel="noopener">此地址下载</a>可安装的<code>Git.DMG</code>文件.</p>
+<p>打开Mac终端工具, 输入指令查询Git版本号:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>git version 2.19.0</p>
+</blockquote>
+<h3 id="安装-node-js"><a href="#安装-node-js" class="headerlink" title="安装 node.js"></a>安装 node.js</h3><p>直接<a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">官网</a>下载, 然后下一步下一步安装完成, node.js和npm都会安装完成.</p>
+<p>打开Mac终端工具, 分别输入指令查询<code>node.js</code>和<code>npm</code>版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>v12.14.0</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>6.13.4</p>
+</blockquote>
+<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>在终端工具上输入命令稍等片刻完成安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g hexo</span><br></pre></td></tr></table></figure>
+<p>安装完成后, 输入以下指令查询版本号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>hexo-cli: 3.1.0<br>os: Darwin 19.2.0 darwin x64<br>node: 12.14.0<br>v8: 7.7.299.13-node.16<br>uv: 1.33.1<br>zlib: 1.2.11<br>brotli: 1.0.7<br>ares: 1.15.0<br>modules: 72<br>nghttp2: 1.39.2<br>napi: 5<br>llhttp: 1.1.4<br>http_parser: 2.8.0<br>openssl: 1.1.1d<br>cldr: 35.1<br>icu: 64.2<br>tz: 2019c<br>unicode: 12.1</p>
+</blockquote>
+<h3 id="初始化-hexo-并启动服务"><a href="#初始化-hexo-并启动服务" class="headerlink" title="初始化 hexo 并启动服务"></a>初始化 hexo 并启动服务</h3><p>在自己用户名目录下, 创建 hexo 文件夹(名字可以自己改), 并进入文件下目录, 执行指令完成初始化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir hexo   ## 创建hexo文件夹</span><br><span class="line">cd hexo      ## 进入hexo文件夹</span><br><span class="line">hexo init    ## 初始化hexo</span><br><span class="line">npm install  ## 安装相关依赖程序</span><br><span class="line">hexo generate ## 生成静态页面</span><br><span class="line">hexo server  ## 启动hexo服务</span><br></pre></td></tr></table></figure>
+<p>此时Hexo服务已经在本机启动, Ctrl+C可以停止服务, 打开本地浏览器, 直接访问 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>, 就可以看到网站.</p>
+<p>通过访达工具可以直接浏览 <code>username/hexo/</code> 目录, 下面是几个重要文件和文件夹构成</p>
+<blockquote>
+<p><strong>_config.yml</strong>  ## <a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">站点配置文件</a>, 可以调整里面参数修改站点配置<br><strong>/public/</strong>  ## 站点对外发布时会在此文件夹自动生成网站静态文件, 这些文件将发送给外部托管的服务器, 比如Github<br><strong>/source/_posts/</strong>  ## 这里存储博客文章源文件, 每篇文章对应1个.md文件, 用markdown标记编写的文件通常保存为.md文件, 所谓发布就是把md文件变成 public下的所有站点静态文件<br><strong>/themes/</strong>  ## 给博客站点安装外观模板就会放在这个文件夹<br><strong>/node_modules/</strong> ## node.js系统文件</p>
+</blockquote>
+<hr>
+<h2 id="Github-托管环境"><a href="#Github-托管环境" class="headerlink" title="Github 托管环境"></a>Github 托管环境</h2><p>需要注册Github账号, 创建Github公开Repository, 在macOS上安装Git部署器, 在设置文件中将macOS-hexo和Github-pages连接起来, 进行发布.</p>
+<h3 id="创建Github-Repository"><a href="#创建Github-Repository" class="headerlink" title="创建Github Repository"></a>创建Github Repository</h3><p>创建新库的设置页面有3个注意事项</p>
+<ol>
+<li>Repository name<ul>
+<li>命名格式必须是: <code>username.github.io</code></li>
+<li>库名中的username必须与Github账号名称一致</li>
+</ul>
+</li>
+<li>Description 可选, 可不填写</li>
+<li>Public or Private, 选择 Public</li>
+<li>Initialize this repository with a README, 勾选</li>
+</ol>
+<p>设置完成之后, 进入Repository Setting页面, 在Github Pages 栏目 </p>
+<ol>
+<li>设置Source, 由None改成Master branch</li>
+<li>然后启动Github Pages, 此时会看到以下字样<blockquote>
+<p>Your site is published at <a href="https://username.github.io" target="_blank" rel="noopener">https://<strong><em>username</em></strong>.github.io</a><br>这就代表Pages已经开通</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="安装本地Git部署器"><a href="#安装本地Git部署器" class="headerlink" title="安装本地Git部署器"></a>安装本地Git部署器</h3><ol>
+<li><p>在macOS中打开终端工具, 进入hexo文件夹, 输入以下指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd hexo</span><br><span class="line">npm install hexo-deployer-git -save #安装Git部署工具</span><br></pre></td></tr></table></figure></li>
+<li><p>修改站点配置文件 <code>/hexo/_config.yml</code> 末尾</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deply: </span><br><span class="line">    type: git</span><br><span class="line">    repo: https:&#x2F;&#x2F;github.com&#x2F;username&#x2F;username.github.io  ## 注意username替换成自己的Github用户名</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></li>
+<li><p>进行本地发布, 通常可以先清空,再生成本地文件,最后发布</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd hexo</span><br><span class="line">hexo clean  ## 清空本地已经产生的文件</span><br><span class="line">hexo generate  ## 重新生成站点文件</span><br><span class="line">hexo deploy  ## 将站点文件发布到Github</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>部署成功之后就能直接通过 <code>https://username.github.io</code> 访问你的站点内容</p>
+</blockquote>
+</li>
+<li><p>如果在第3步遇到无法解析Github.com的错误提示</p>
+<blockquote>
+<p>hexo deploy could not resolve host: github.com<br>通常需要修改下本地的hosts文件, 直接进行Github.com域名解析</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vim &#x2F;etc&#x2F;hosts</span><br><span class="line">192.30.255.112  github.com ## 在hosts文件中加入这个解析</span><br><span class="line">:wq ##保存并退出</span><br><span class="line"></span><br><span class="line">hexo deploy  ## 重新执行, 通常会成功解决无法解析的问题</span><br></pre></td></tr></table></figure>
+<p><img src="/images/15776857569366.jpg" alt="-w300"></p>
+</li>
+</ol>
+<h3 id="创建新博客"><a href="#创建新博客" class="headerlink" title="创建新博客"></a>创建新博客</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd hexo</span><br><span class="line">hexo new &quot;new_blog_name&quot;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> 自动产生该文件, /hexo/source/_posts/new_blog_name.md </p>
+</blockquote>
+<h3 id="发布新博客"><a href="#发布新博客" class="headerlink" title="发布新博客"></a>发布新博客</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br><span class="line"></span><br><span class="line">hexo g &#x3D;&#x3D; hexo generate  ## 一些快捷键</span><br><span class="line">hexo d &#x3D;&#x3D; hexo deploy  ## 一些快捷键</span><br><span class="line">hexo s &#x3D;&#x3D; hexo server  ## 一些快捷键</span><br><span class="line">hexo n &#x3D;&#x3D; hexo new  ## 一些快捷键</span><br></pre></td></tr></table></figure>
+<h3 id="安装Next-Theme"><a href="#安装Next-Theme" class="headerlink" title="安装Next Theme"></a>安装Next Theme</h3><ol>
+<li><a href="https://github.com/iissnan/hexo-theme-next/releases" target="_blank" rel="noopener">在此地址来下载</a></li>
+<li>安装在 /hexo/themes/ 路径上</li>
+<li><a href="https://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">详细的设置参考地址</a></li>
+</ol>
+<h2 id="MWeb-编辑环境"><a href="#MWeb-编辑环境" class="headerlink" title="MWeb 编辑环境"></a>MWeb 编辑环境</h2><p><a href="http://zh.mweb.im/index.html" target="_blank" rel="noopener">下载MWeb</a>, 利用MWeb的外部模式, 可以将MWeb与Hexo结合起来, 对博客高效管理</p>
+<h3 id="设置MWeb"><a href="#设置MWeb" class="headerlink" title="设置MWeb"></a>设置MWeb</h3><ol>
+<li>通过 文件-打开外部模式</li>
+<li>可以在偏好设置中勾选”启动时默认打开外部模式”</li>
+<li>进入外部模式后, 点击左下角+, 引入文件夹, 把 /hexo/source/ 配置进去</li>
+<li>可以在 source文件夹下创建images文件夹, 同时将source的保存拖入的图片文件夹名称, 指定为images</li>
+<li>设置完成后, 可以在MWeb里面看到hexo文章, 也可以新建博客</li>
+</ol>
+<p><img src="/images/15776846673696.jpg" alt="-w300"><br><img src="/images/15776847228832.jpg" alt="-w300"></p>
+<h3 id="Hexo操作"><a href="#Hexo操作" class="headerlink" title="Hexo操作"></a>Hexo操作</h3><p>在MWeb中完成写作后, 进入hexo进行发布操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hexo clean ## 删除已经生成文件</span><br><span class="line">hexo g  ## 生成新的文件</span><br><span class="line">hexo s  ## 启动服务预览页面localhost:4000</span><br><span class="line">hexo d  ## 发布到Github</span><br><span class="line"></span><br><span class="line">hexo g -d ## 如果不预览直接用这个命令就可以发布</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<blockquote>
+<p><a href="https://help.github.com/cn/github/writing-on-github/basic-writing-and-formatting-syntax" target="_blank" rel="noopener">Github支持的Markdown语法</a></p>
+</blockquote>
 
           
         
@@ -520,7 +632,25 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>
