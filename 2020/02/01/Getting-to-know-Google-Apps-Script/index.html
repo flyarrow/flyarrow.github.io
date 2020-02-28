@@ -46,27 +46,49 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="More More More">
-<meta property="og:url" content="https://mmmbo.com/index.html">
+  <meta name="description" content="先来认识几个概念为对抗Microsoft Office系列产品在办公领域的统治地位, 从2004年推出Gmail开始, Google着手建立了一系列的基于云端运行的在线工具, 从此开创了一条与传统Office客户端运行软件不同的发展路线, 让用户利用浏览器就能随时随地在云端办公.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识Google Apps Script">
+<meta property="og:url" content="https://mmmbo.com/2020/02/01/Getting-to-know-Google-Apps-Script/index.html">
 <meta property="og:site_name" content="More More More">
+<meta property="og:description" content="先来认识几个概念为对抗Microsoft Office系列产品在办公领域的统治地位, 从2004年推出Gmail开始, Google着手建立了一系列的基于云端运行的在线工具, 从此开创了一条与传统Office客户端运行软件不同的发展路线, 让用户利用浏览器就能随时随地在云端办公.">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.gstatic.com/images/branding/product/2x/sheets_48dp.png">
+<meta property="og:image" content="https://www.gstatic.com/images/branding/product/2x/docs_48dp.png">
+<meta property="og:image" content="https://www.gstatic.com/images/branding/product/2x/slides_48dp.png">
+<meta property="og:image" content="https://www.gstatic.com/images/branding/product/2x/forms_48dp.png">
+<meta property="og:image" content="https://www.gstatic.com/images/branding/product/2x/drive_48dp.png">
+<meta property="og:image" content="https://www.gstatic.com/images/branding/product/2x/gmail_48dp.png">
+<meta property="og:image" content="https://www.gstatic.com/images/branding/product/2x/calendar_48dp.png">
+<meta property="og:image" content="https://www.gstatic.com/images/branding/product/2x/chat_48dp.png">
+<meta property="og:image" content="https://www.gstatic.com/images/branding/product/2x/sites_48dp.png">
+<meta property="og:image" content="https://www.gstatic.com/images/branding/product/2x/contacts_48dp.png">
+<meta property="og:image" content="https://www.gstatic.com/images/branding/product/2x/groups_48dp.png">
+<meta property="og:image" content="https://www.gstatic.com/images/branding/product/2x/maps_48dp.png">
+<meta property="og:image" content="https://www.gstatic.com/images/branding/product/2x/translate_48dp.png">
+<meta property="article:published_time" content="2020-02-01T02:04:56.000Z">
+<meta property="article:modified_time" content="2020-02-10T01:33:13.816Z">
 <meta property="article:author" content="John Chen">
+<meta property="article:tag" content="GAS">
+<meta property="article:tag" content="Javascript">
+<meta property="article:tag" content="API">
+<meta property="article:tag" content="Sheets">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.gstatic.com/images/branding/product/2x/sheets_48dp.png">
 
-<link rel="canonical" href="https://mmmbo.com/">
+<link rel="canonical" href="https://mmmbo.com/2020/02/01/Getting-to-know-Google-Apps-Script/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false
+    isHome: false,
+    isPost: true
   };
 </script>
 
-  <title>More More More</title>
+  <title>初识Google Apps Script | More More More</title>
   
 
 
@@ -171,10 +193,10 @@
             
 
   <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://mmmbo.com/2020/02/01/Getting-to-know-Google-Apps-Script/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -188,8 +210,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/01/Getting-to-know-Google-Apps-Script/" class="post-title-link" itemprop="url">初识Google Apps Script</a>
+          初识Google Apps Script
         </h1>
 
         <div class="post-meta">
@@ -238,127 +259,123 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="先来认识几个概念"><a href="#先来认识几个概念" class="headerlink" title="先来认识几个概念"></a>先来认识几个概念</h1><p>为对抗Microsoft Office系列产品在办公领域的统治地位, 从2004年推出Gmail开始, Google着手建立了一系列的基于云端运行的在线工具, 从此开创了一条与传统Office客户端运行软件不同的发展路线, 让用户利用浏览器就能随时随地在云端办公.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/01/Getting-to-know-Google-Apps-Script/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <h1 id="先来认识几个概念"><a href="#先来认识几个概念" class="headerlink" title="先来认识几个概念"></a>先来认识几个概念</h1><p>为对抗Microsoft Office系列产品在办公领域的统治地位, 从2004年推出Gmail开始, Google着手建立了一系列的基于云端运行的在线工具, 从此开创了一条与传统Office客户端运行软件不同的发展路线, 让用户利用浏览器就能随时随地在云端办公. <a id="more"></a></p>
+<p>今天的人们已经越来越接受云端办公的理念, 也有越来越多的人体会到云端以及整合所带来的收益, 就连老对手Microsoft也与时俱进, 把Office搬上云端, 推出Office365这样的在线服务.</p>
+<h1 id="Google-Apps-有什么"><a href="#Google-Apps-有什么" class="headerlink" title="Google Apps 有什么?"></a>Google Apps 有什么?</h1><p>今天的 Google Apps 包含了一大堆人们耳熟能详的应用工具:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>App</th>
+<th>Remark</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://www.gstatic.com/images/branding/product/2x/sheets_48dp.png" alt=""></td>
+<td>Sheets</td>
+<td>Google表格, 类似MS Excel</td>
+</tr>
+<tr>
+<td><img src="https://www.gstatic.com/images/branding/product/2x/docs_48dp.png" alt=""></td>
+<td>Docs</td>
+<td>Google文档, 类似MS Word</td>
+</tr>
+<tr>
+<td><img src="https://www.gstatic.com/images/branding/product/2x/slides_48dp.png" alt=""></td>
+<td>Slides</td>
+<td>Google幻灯片, 类似MSMS PPT</td>
+</tr>
+<tr>
+<td><img src="https://www.gstatic.com/images/branding/product/2x/forms_48dp.png" alt=""></td>
+<td>Forms</td>
+<td>Google表单</td>
+</tr>
+<tr>
+<td><img src="https://www.gstatic.com/images/branding/product/2x/drive_48dp.png" alt=""></td>
+<td>Driver</td>
+<td>Google云盘</td>
+</tr>
+<tr>
+<td><img src="https://www.gstatic.com/images/branding/product/2x/gmail_48dp.png" alt=""></td>
+<td>Gmail</td>
+<td>Google电子邮件, 类似MS hotmail</td>
+</tr>
+<tr>
+<td><img src="https://www.gstatic.com/images/branding/product/2x/calendar_48dp.png" alt=""></td>
+<td>Calendar</td>
+<td>Google日历, 类似MS outlook</td>
+</tr>
+<tr>
+<td><img src="https://www.gstatic.com/images/branding/product/2x/chat_48dp.png" alt=""></td>
+<td>Hangouts</td>
+<td>环聊, 初衷可能是MS Skype</td>
+</tr>
+<tr>
+<td><img src="https://www.gstatic.com/images/branding/product/2x/sites_48dp.png" alt=""></td>
+<td>Sites</td>
+<td>Google站点, 类似MS Sharepoints</td>
+</tr>
+<tr>
+<td><img src="https://www.gstatic.com/images/branding/product/2x/contacts_48dp.png" alt=""></td>
+<td>Contacts</td>
+<td>Google联系人</td>
+</tr>
+<tr>
+<td><img src="https://www.gstatic.com/images/branding/product/2x/groups_48dp.png" alt=""></td>
+<td>Groups</td>
+<td>Google群组</td>
+</tr>
+<tr>
+<td><img src="https://www.gstatic.com/images/branding/product/2x/maps_48dp.png" alt=""></td>
+<td>Maps</td>
+<td>Google地图</td>
+</tr>
+<tr>
+<td><img src="https://www.gstatic.com/images/branding/product/2x/translate_48dp.png" alt=""></td>
+<td>Translate</td>
+<td>Google翻译</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>除了给个人提供的免费版之外, 还发展了面向企业的收费版本, G Suit, 包括上述Google Apps之外, 还包含一些企业域名的服务. 人均5$/month, 从提供服务的内容来看, 价格确实不贵</p>
+</blockquote>
+<h1 id="Google-Apps-Script-是什么"><a href="#Google-Apps-Script-是什么" class="headerlink" title="Google Apps Script 是什么?"></a>Google Apps Script 是什么?</h1><p>为了能够满足用户对于Google Apps的更加个性化二次开发需求, Google推出了 <strong><em>Google Apps Scripts (GAS)</em></strong>.</p>
+<p>GAS是一个快速应用开发平台, 直接内嵌在所有Google Apps中, 用户可以快速开发出web apps以及一些自动化任务, 对Google Apps进行操作, 或者实现数据交换.</p>
+<p>GAS使用的语言是Javascript, 接下来的我们就从GAS For Sheets开始学习.</p>
+
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/GAS/" rel="tag"># GAS</a>
+              <a href="/tags/Javascript/" rel="tag"># Javascript</a>
+              <a href="/tags/API/" rel="tag"># API</a>
+              <a href="/tags/Sheets/" rel="tag"># Sheets</a>
+          </div>
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mmmbo.com/2019/12/29/Hexo-Github-Pages-MWeb-Editor-blog/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Chen">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="More More More">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/29/Hexo-Github-Pages-MWeb-Editor-blog/" class="post-title-link" itemprop="url">Hexo(macOS)+Pages(Github)+MWeb(Editor)构建博客系统</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-29 15:00:00" itemprop="dateCreated datePublished" datetime="2019-12-29T15:00:00+08:00">2019-12-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-01 10:09:57" itemprop="dateModified" datetime="2020-02-01T10:09:57+08:00">2020-02-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-users"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="firestore-visitors-count"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>今天介绍下本博客系统搭建工具组合. </p>
-<ol>
-<li>本地环境: Hexo , macOS Catalina </li>
-<li>页面托管: GitHub Pages</li>
-<li>本地编辑: MWeb , Markdown Editor
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/29/Hexo-Github-Pages-MWeb-Editor-blog/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/29/Hexo-Github-Pages-MWeb-Editor-blog/" rel="prev" title="Hexo(macOS)+Pages(Github)+MWeb(Editor)构建博客系统">
+      <i class="fa fa-chevron-left"></i> Hexo(macOS)+Pages(Github)+MWeb(Editor)构建博客系统
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
   
 
   </div>
-
-  
-
 
 
           </div>
@@ -409,6 +426,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#先来认识几个概念"><span class="nav-number">1.</span> <span class="nav-text">先来认识几个概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Google-Apps-有什么"><span class="nav-number">2.</span> <span class="nav-text">Google Apps 有什么?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Google-Apps-Script-是什么"><span class="nav-number">3.</span> <span class="nav-text">Google Apps Script 是什么?</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
