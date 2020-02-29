@@ -247,7 +247,7 @@ git push origin branch_name # 更新发布到 branch_name 分支上
 ```
 #### 回到A电脑, 用下面的指令获取更新
 ```
-git pull
+git pull https://github.com/Github_username/Github_username.github.io branch_name # 注意要<远程> <分支名称> 之间有一个空格
 ```
 在A电脑完成更新后, 再执行发布, 
 ```
