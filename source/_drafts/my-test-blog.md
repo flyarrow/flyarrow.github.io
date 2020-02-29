@@ -21,6 +21,7 @@ function get2SKJson() {
     });
   });
   
+
   /*产生所有神器装备的json*/
   
   var jsonEQ = "";

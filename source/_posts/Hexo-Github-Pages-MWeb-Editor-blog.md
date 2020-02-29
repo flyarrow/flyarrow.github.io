@@ -206,3 +206,55 @@ hexo g -d ## 如果不预览直接用这个命令就可以发布
 自此就完成了个人博客的所有环境配置, 开始利用Markdown轻松记录内容了.
 后续还会补充一些关于Next Theme模板的修改配置, 站点修改配置之类的内容, 等有时间再做, :)
 
+## 补充: 多设备同步编辑
+因为hexo的架构环境在本地, 在Github上发布的只是public文件夹, 所以如果想要在2台以上的电脑上同时来维护同一份博客, 就需要构建多设备同步的编辑环境.
+### 构建思路
+1. 假设在公司和家中分别有A,B两台电脑
+2. A电脑已经完成了本篇所讲述的hexo环境搭建, 并且能把public文件夹网站文件发布到github的库master主分支
+3. 此时只要把A电脑hexo文件夹下网站文件, 保存到github的另外一个分支比如branch_name即可
+4. 然后在B电脑将将分支branch_name的内容全部获取下来, 再更新内容时, 将重新发布public文件夹并发布到master分支
+5. 核心思路: 网站文件 存在master分支, 所有源文件存在branch_name分支
+
+### 操作步骤
+#### 首先, 假设A电脑已经完成了hexo搭建和github连接, 进入根目录hexo
+```
+cd hexo
+git init #git初始化
+git remote add origin https://github.com/Github_username/Github_username.github.io.git #添加仓库地址
+git checkout -b branch_name #新建分支branch_name, 名称可更换, 切换到新分支
+git add . #添加所有本地文件到git
+git commit -m "这里填写你本次提交的备注，内容随意" #git提交
+git push origin 分支名 #文件推送到hexo分支
+```
+##### 然后, 在B电脑部署git环境和node.js环境, 在某个文件夹下, 比如 cd ~
+```
+git clone -b branch_name https://github.com/Github_username/Github_username.github.io.git  # clone分支branch_name的内容, 也就是所有源文件
+```
+此时会在~目录上自动创建一个文件夹 Github_username.github.io
+```
+cd Github_username.github.io  
+sudo npm install -g hexo-cli #安装hexo,注意这里不需要hexo初始化,否则之前的hexo配置参数会重置
+sudo npm install #安装依赖库
+sudo npm install hexo-deployer-git #安装git部署相关配置
+```
+此时环境搭建完成
+##### 在B电脑完成写作之后
+```
+hexo g -d # 重新生成public文件夹, 并发布到 master分支
+git add . # 开始讲所有源文件的更新发布
+git commit -m "这里填写你本次提交的备注，内容随意"
+git push origin branch_name # 更新发布到 branch_name 分支上  
+```
+#### 回到A电脑, 用下面的指令获取更新
+```
+git pull
+```
+在A电脑完成更新后, 再执行发布, 
+```
+hexo g -d # 重新生成public文件夹, 并发布到 master分支
+git add . # 开始讲所有源文件的更新发布
+git commit -m "这里填写你本次提交的备注，内容随意"
+git push origin branch_name # 更新发布到 branch_name 分支上  
+```
+接下来就周而复始了.
+
