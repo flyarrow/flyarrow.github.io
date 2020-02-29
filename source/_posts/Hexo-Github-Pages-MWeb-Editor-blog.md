@@ -206,7 +206,7 @@ hexo g -d ## 如果不预览直接用这个命令就可以发布
 自此就完成了个人博客的所有环境配置, 开始利用Markdown轻松记录内容了.
 后续还会补充一些关于Next Theme模板的修改配置, 站点修改配置之类的内容, 等有时间再做, :)
 
-## 补充: 多设备同步编辑
+## 补充1: 多设备同步编辑
 因为hexo的架构环境在本地, 在Github上发布的只是public文件夹, 所以如果想要在2台以上的电脑上同时来维护同一份博客, 就需要构建多设备同步的编辑环境.
 ### 构建思路
 1. 假设在公司和家中分别有A,B两台电脑
@@ -245,7 +245,7 @@ git add . # 开始讲所有源文件的更新发布
 git commit -m "这里填写你本次提交的备注，内容随意"
 git push origin branch_name # 更新发布到 branch_name 分支上  
 ```
-#### 回到A电脑, 用下面的指令获取更新
+#### 回到A电脑, 用以下指令获取branch_name分支的更新
 ```
 git pull https://github.com/Github_username/Github_username.github.io branch_name # 注意要<远程> <分支名称> 之间有一个空格
 ```
@@ -257,4 +257,27 @@ git commit -m "这里填写你本次提交的备注，内容随意"
 git push origin branch_name # 更新发布到 branch_name 分支上  
 ```
 接下来就周而复始了.
+## 补充2: 生成ssh密钥文件增加连接安全
+Github采用公钥和私钥配对来提升安全性
+### 在本地电脑上产生ssh密钥文件
+```
+git config --global user.name "替换成你的GitHub用户名"
+git config --global user.email "替换成你的GitHub注册邮箱"
+ssh-keygen -t rsa -C "替换成你的GitHub注册邮箱"  #通过这个命令在~/.ssh文件夹下创建公钥私钥文件
+cd ~/.ssh
+ls # 会看到至少2个文件 id_rsa(私钥文件) id_rsa.pub(公钥文件)
+```
+### 在Github中填写公钥文件
+1. 如果在Mac下, 在访达中 Shift+Command+G 输入 ~/.ssh 可以打开 .shh文件夹
+2. 利用文本编辑器打开 id_rsa.pub 文件, 复制所有内容
+3. 进入Github - Setting - keys页面, 新建 new SSH Key, 标题随便写, 将内容粘贴到key中, 点击 add SSH Key即可
+4. 此时你本地的私钥文件与Git上的公钥文件就可以配对了
+
+![](/images/15829575589388.jpg)
+![](/images/15829576504451.jpg)
+![](/images/15829577096766.jpg)
+
+
+
+
 
